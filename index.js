@@ -45,6 +45,7 @@ app.use(function(req,res,next){
 
 // Routes
 app.use('/', require('./routes/home'));
+app.use('/recruitments', require('./routes/recruitments'));
 app.use('/users', require('./routes/users'));
 // Port setting
 var port = 3000;

@@ -8,8 +8,8 @@ var recruitmentSchema = mongoose.Schema({
   body:{type:String, required:true},
   createdAt:{type:Date, default:Date.now}, 
   updatedAt:{type:Date},
-})
+});
 
 // model & export 
-var Recruiment = mongoose.model('recruitment',recruitmentSchema);
-module.exports = Recruiment;
+var Recruitment = mongoose.model('recruitment',recruitmentSchema);
+module.exports = Recruitment;

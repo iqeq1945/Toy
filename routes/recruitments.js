@@ -1,17 +1,17 @@
 // routes/Study.js
 
 var express = require('express');
-var router = express.Router;
-var Recruiment = require('../models/Recruitment');
+var router = express.Router();
+var Recruitment = require('../models/Recruitment');
 
-// Index
-router.get('/',function(req,res){
-    Recruiment.find({})
-    .sort('-createAt')
-    .exec(function(err,recruiments){
-        if(err) return res.json(err);
-        res.render('recruitments/index',{recruitments:recruitments});
-    });
+// Index 
+router.get('/', function(req, res){
+  Recruitment.find({})                  // 1
+  .sort('-createdAt')            // 1
+  .exec(function(err, recruitments){    // 1
+    if(err) return res.json(err);
+    res.render('recruitments/index', {recruitments:recruitments});
+  });
 });
 
 // new
@@ -21,7 +21,7 @@ router.get('/new',function(req,res){
 
 //create
 router.post('/', function(req,res){
-    Recruiment.create(req.body,function(err,recruitment){
+    Recruitment.create(req.body,function(err,recruitment){
         if(err) return res.json(err);
         res.redirect('/recruitments');
     });
@@ -29,7 +29,7 @@ router.post('/', function(req,res){
 
 //show
 router.get('/:id',function(req,res){
-    Recruiment.findOne({_id:req.params.id},function(err, recruitment){
+    Recruitment.findOne({_id:req.params.id},function(err, recruitment){
         if(err) return res.json(err);
         res.render('recruitments/show',{recruitment:recruitment});
     });
@@ -37,7 +37,7 @@ router.get('/:id',function(req,res){
 
 // edit
 router.get('/:id/edit', function(req, res){
-    Recruiment.findOne({_id:req.params.id}, function(err, post){
+    Recruitment.findOne({_id:req.params.id}, function(err, recruitment){
       if(err) return res.json(err);
       res.render('recruitments/edit', {recruitment:recruitment});
     });
@@ -46,15 +46,15 @@ router.get('/:id/edit', function(req, res){
 // update
 router.put('/:id', function(req, res){
     req.body.updatedAt = Date.now(); //2
-    Recruiment.findOneAndUpdate({_id:req.params.id}, req.body, function(err, post){
+    Recruitment.findOneAndUpdate({_id:req.params.id}, req.body, function(err, recruitment){
       if(err) return res.json(err);
-      res.redirect("/recruiments/"+req.params.id);
+      res.redirect("/recruitments/"+req.params.id);
     });
   });
   
   // destroy
   router.delete('/:id', function(req, res){
-    Post.deleteOne({_id:req.params.id}, function(err){
+    Recruitment.deleteOne({_id:req.params.id}, function(err){
       if(err) return res.json(err);
       res.redirect('/recruitments');
     });

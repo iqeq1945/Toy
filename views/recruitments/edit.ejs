@@ -1,4 +1,4 @@
-.<!-- views/posts/edit.ejs -->
+.<!-- views/recruitments/edit.ejs -->
 
 <!DOCTYPE html>
 <html>
@@ -14,25 +14,25 @@
         <ol class="breadcrumb p-1 pl-2 pr-2">
           <li class="breadcrumb-item"><a href="/">Home</a></li>
           <li class="breadcrumb-item"><a href="/recruitments">Board</a></li>
-          <li class="breadcrumb-item"><a href="/recruitments/<%= recruitment._id %>"><%= post.title %></a></li>
-          <li class="breadcrumb-item active" aria-current="page">Edit Post</li>
+          <li class="breadcrumb-item"><a href="/recruitments/<%= recruitment._id %>"><%= recruitment.title %></a></li>
+          <li class="breadcrumb-item active" aria-current="page">Edit recruitment</li>
         </ol>
       </nav>
 
-      <form action="/posts/<%= post._id %>?_method=put" method="post">
+      <form action="/recruitments/<%= recruitment._id %>?_method=put" method="post">
 
         <div class="form-group">
           <label for="title">Title</label>
-          <input type="text" id="title" name="title" value="<%= post.title %>" class="form-control">
+          <input type="text" id="title" name="title" value="<%= recruitment.title %>" class="form-control">
         </div>
 
         <div class="form-group">
           <label for="body">Body</label>
-            <textarea id="body" name="body" rows="5" class="form-control"><%= post.body %></textarea>
+            <textarea id="body" name="body" rows="5" class="form-control"><%= recruitment.body %></textarea>
         </div>
 
         <div>
-          <a class="btn btn-primary" href="/posts/<%= post._id %>">Back</a>
+          <a class="btn btn-primary" href="/recruitments/<%= recruitment._id %>">Back</a>
           <button type="submit" class="btn btn-primary">Submit</button>
         </div>
 
