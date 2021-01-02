@@ -1,34 +1,10 @@
-  body {
+body {
     font-family: 'Open Sans', sans-serif;
-  }
-  .breadcrumb-item {
-    font-size: 0.8em !important;
-  }
-  .ellipsis{
-    display: block;
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; /* 1 */
-  }
-  
-  .board-table {
-    table-layout: fixed;
-  }
-  .board-table .date {
-    width: 100px;
-  }
-  
-  .post-body{
-    white-space: pre-line; /* 2 */
-  }
-  .post-info{
-    font-size: 0.8em;
   }
   .user-form {
     width: 400px;
   }
-  .flex_container{
+  .container{
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
@@ -65,4 +41,38 @@
     text-decoration: none;
     color: #35c5f0;
   }
-  
+  #wrap {
+    width:100%;
+    height:100px;
+    background:white;
+  }
+  #sidebar {
+    background: #333;
+    width: 300px;
+    height: 100%;
+    top: 0;
+    left: -300px;
+    position: fixed;
+  }
+  #sidebar > ul {
+    margin:0;
+    padding: 0;
+    top:50px;
+    left:70px;
+    position: absolute;
+  }
+  #sidebar li {
+    margin: 0 0 10px;
+    list-style: none;
+    color: #FBEFEF;
+  }
+  #sidebar > button {
+    background:#333;
+    position: absolute;
+    top: 150px;
+    left: 300px;
+    width: 52px;
+    height: 52px;
+    border: none;
+    color: white;
+  }
