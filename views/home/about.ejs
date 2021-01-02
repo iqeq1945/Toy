@@ -4,16 +4,42 @@
 <html>
   <head>
     <%- include('../partials/head') %>
+    <meta charset="utf-8">
+    <title>커뮤니티</title>
+    <link rel="stylesheet" href="/public/css/master.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  	<script type="text/javascript">
+    $(function(){
+      var duration = 300;
+
+      var $side = $('#sidebar');
+      var $sidebt = $side.find('button').on('click', function(){
+        $side.toggleClass('open');
+
+        if($side.hasClass('open')) {
+          $side.stop(true).animate({left:'0px'}, duration);
+          $sidebt.find('span').text('CLOSE');
+        }else{
+          $side.stop(true).animate({left:'-300px'}, duration);
+          $sidebt.find('span').text('OPEN');
+        };
+      });
+    });
+    </script>
   </head>
   <body>
     <%- include('../partials/nav') %>
-
-    <div>
-
-      <h2>Comunity</h2>
-
-      <P>Comunitny 예정</p>
-
-    </div>
+    <div id="wrap">
+  		<aside id="sidebar">
+  			<ul>
+  				<li>All</li>
+  				<li>공지사항</li>
+  				<li>일상</li>
+          <li>IT 행사</li>
+  			</ul>
+  			<button><span class="btn_t">OPEN</span></button>
+  		</aside>
+  	</div>
   </body>
 </html>
