@@ -10,7 +10,7 @@ router.get('/', function(req, res){
   .sort('-createdAt')            // 1
   .exec(function(err, recruitments){    // 1
     if(err) return res.json(err);
-    res.render('recruitments/index', {recruitments:recruitments});
+    res.render('recruitments/index_test', {recruitments:recruitments});
   });
 });
 

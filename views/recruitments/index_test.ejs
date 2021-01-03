@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+</head>
+<body>
+    <%- include('../partials/nav') %>
+
+    <div class=flex-container>
+        <div class=list>
+            <% if(recruitments == null || recruitments.length == 0){ %>
+                  <p> There is no data to show :( </p>
+              <% } %>
+            <% recruitments.forEach(function(recruitment){ %>
+                <a href="/recruitments/<%= recruitment._id %>" class="item">
+                    <p><%= recruitment.title %></p>
+                    <p data-date="<%= recruitment.createdAt %>"></p>
+                </a>
+           <% }) %>
+        </div>
+    </div>
+</body>
+</html>
