@@ -1,6 +1,10 @@
 body {
     font-family: 'Open Sans', sans-serif;
   } 
+nav{
+  padding: 5px 10px;
+  background-color: white;
+}
   .breadcrumb-item {
     font-size: 0.8em !important;
   }
@@ -33,7 +37,10 @@ body {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-around;
+  }
+  .b-g{
+    background-color: #f2f2f2;
   }
   .logo-nav{
     font-size: 18px;
@@ -44,9 +51,6 @@ body {
   }
   .search{
     padding-bottom: 10px;
-  }
-  .ml-l{
-    margin-left: auto;
   }
   .nav-item{
     display: inline-block;
@@ -62,7 +66,7 @@ body {
     text-decoration: none;
     color: #424242;
   }
-  a:hover{
+  a.nav-link:hover{
     text-decoration: none;
     color: #35c5f0;
   }
@@ -107,7 +111,9 @@ body {
 }
 .item{
   display: inline-block;
+  background-color: white;
   margin-bottom: 8px;
-  margin-right: 16px;
+  margin-right: 8px;
+  padding: 5px 10px;
   width: 440px;
 }
