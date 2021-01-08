@@ -14,6 +14,7 @@
             <% recruitments.forEach(function(recruitment){ %>
                 <a href="/recruitments/<%= recruitment._id %>" class="item">
                     <p><%= recruitment.title %></p>
+                    <p><%= recruitment.tag %></p>
                     <p data-date="<%= recruitment.createdAt %>"></p>
                 </a>
            <% }) %>

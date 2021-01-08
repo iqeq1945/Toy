@@ -107,13 +107,23 @@ nav{
   }
 .list{
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin: 8px auto;
 }
 .item{
-  display: inline-block;
   background-color: white;
   margin-bottom: 8px;
   margin-right: 8px;
   padding: 5px 10px;
   width: 440px;
+}
+form.container{
+  margin: 16px auto;
+  width: 720px;
+}
+.section{
+  margin-bottom: 1px;
+  padding: 16px 16px 8px 16px;
+  background-color: #fff
 }

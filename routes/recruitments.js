@@ -16,7 +16,7 @@ router.get('/', function(req, res){
 
 // new
 router.get('/new',function(req,res){
-    res.render('recruitments/new');
+    res.render('recruitments/new_test');
 });
 
 //create
