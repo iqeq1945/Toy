@@ -13,8 +13,8 @@
               <% } %>
             <% recruitments.forEach(function(recruitment){ %>
                 <a href="/recruitments/<%= recruitment._id %>" class="item">
-                    <p><%= recruitment.title %></p>
-                    <p><%= recruitment.tag %></p>
+                    <p>제목 <%= recruitment.title %></p>
+                    <p>태그 <%= recruitment.tag %></p>
                     <p data-date="<%= recruitment.createdAt %>"></p>
                 </a>
            <% }) %>

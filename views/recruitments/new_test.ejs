@@ -7,10 +7,9 @@
 
     <div class="flex-container">
         <form action="/recruitments" method="post" class="form-container">
-            <div class="section">
+            <div id="tag_list" class="section"> 
                 <label for="tag">Tag</label>
-                <label><input type="checkbox" name="tag" value="Programing">Programing</label>
-                <label><input type="checkbox" name="tag" value="Project">Project</label>
+                <input type="text" id="tag" placeholder="태그를 입력해주세요">
             </div>
             <div class="section">
                 <label for="title">Title</label>
@@ -30,7 +29,6 @@
         </form>
     </div>
     <script>
-      var tag = document.getElementById("tag");
     </script>
 </body>
 </html>

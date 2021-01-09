@@ -37,10 +37,41 @@ $(function(){
   
     convertDate();
     convertDateTime();
-    
     $('input[type="text"]').keydown(function() {
-      if (event.keyCode === 13) {
+      if (event.keyCode === 13 ) {
           event.preventDefault();
       }
   });
+    $('#tag').keydown(function(){
+    if(event.keyCode === 13 || event.keyCode === 32){
+      var tag = $('#tag').val();
+      if(tag){
+        var input = document.createElement("input");
+        var div = document.createElement("div");
+
+        input.setAttribute("type","hidden");
+        input.setAttribute("value",tag);
+        input.setAttribute("name","tag");
+
+        div.setAttribute("class","tag");
+        div.onclick=function(){del_tag(this);};
+        div.innerHTML = tag;
+        
+        document.getElementById("tag_list").appendChild(div);
+        document.getElementById("tag_list").appendChild(input);
+
+        $('#tag').val('');
+      }
+    }
+  });
+  function del_tag(obj){
+    var input = document.getElementsByName("tag");
+    input.forEach(function(element){
+      if(obj.innerHTML===element.value){
+        document.getElementById("tag_list").removeChild(element);
+        document.getElementById("tag_list").removeChild(obj);
+        return;
+      }
+    });
+  }
   });

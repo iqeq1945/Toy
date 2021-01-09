@@ -127,3 +127,18 @@ form.container{
   padding: 16px 16px 8px 16px;
   background-color: #fff
 }
+.tag{
+  font-size: 1rem;
+    display: inline-block;
+    align-items: center;
+    height: 2rem;
+    border-radius: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background: rgb(241, 243, 245);
+    color: rgb(12, 166, 120);
+    margin-right: 0.75rem;
+    transition: all 0.125s ease-in 0s;
+    cursor: pointer;
+    margin-bottom: 0.75rem;
+}
