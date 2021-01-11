@@ -6,13 +6,18 @@ var Recruitment = require('../models/Recruitment');
 var util = require('../util');
 
 // Index 
-router.get('/', function(req, res){
-  Recruitment.find({})
+router.get('/', async function(req, res){
+  var searchQuery = createSearchQuery(req.query);
+
+  var recruitments = await Recruitment.find(searchQuery)
   .populate('author')                 
   .sort('-createdAt')     
-  .exec(function(err, recruitments){    
-    if(err) return res.json(err);
-    res.render('recruitments/index_test', {recruitments:recruitments});
+  .exec();
+
+  res.render('recruitments/index_test',{
+    recruitments:recruitments,
+    searchType:req.query.searchType,
+    searchText:req.query.searchText
   });
 });
 
@@ -32,7 +37,7 @@ router.post('/', util.isLoggedin , function(req,res){
           req.flash('errors', util.parseError(err));
           return res.redirect('/recruitments/new_test');
         }
-        res.redirect('/recruitments');
+        res.redirect('/recruitments'+res.locals.getRecruitmentQueryString(false, {searchText:'' }));
     });
 });
 
@@ -72,7 +77,7 @@ router.put('/:id', util.isLoggedin, checkPermission, function(req, res){
         req.flash('errors', util.parseError(err));
         return res.redirect('/recruitments/'+req.params.id+'/edit');
       }
-      res.redirect("/recruitments/"+req.params.id);
+      res.redirect("/recruitments/"+req.params.id+res.locals.getRecruitmentQueryString());
     });
   });
   
@@ -80,17 +85,33 @@ router.put('/:id', util.isLoggedin, checkPermission, function(req, res){
   router.delete('/:id', util.isLoggedin, checkPermission, function(req, res){
     Recruitment.deleteOne({_id:req.params.id}, function(err){
       if(err) return res.json(err);
-      res.redirect('/recruitments');
+      res.redirect('/recruitments'+res.locals.getRecruitmentQueryString());
     });
   });
   
   module.exports = router;
 
   function checkPermission(req, res, next){
-    Recruitment.findOne({_id:req.params.id}, function(err, post){
+    Recruitment.findOne({_id:req.params.id}, function(err, recruitment){
       if(err) return res.json(err);
       if(recruitment.author != req.user.id) return util.noPermission(req, res);
   
       next();
     });
+  }
+
+  function createSearchQuery(queries){
+    var searchQuery = {};
+    if(queries.searchType && queries.searchText && queries.searchText.length >= 3){ 
+      var searchTypes = queries.searchType.toLowerCase().split(',');
+      var RecruitmentQueries = [];
+      if(searchTypes.indexOf('title')>=0){
+        RecruitmentQueries.push({ title: { $regex: new RegExp(queries.searchText, 'i') } }); 
+      }
+      if(searchTypes.indexOf('body')>=0){
+        RecruitmentQueries.push({ body: { $regex: new RegExp(queries.searchText, 'i') } });
+      }
+      if(RecruitmentQueries.length > 0) searchQuery = {$or:RecruitmentQueries}; 
+    }
+    return searchQuery;
   }

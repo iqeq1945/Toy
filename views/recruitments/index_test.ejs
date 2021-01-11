@@ -7,6 +7,25 @@
     <%- include('../partials/nav') %>
 
     <div class="flex-container">
+        <div>
+            <form action="/recruitments" method="get">
+                <div class="form-group col-9"> <!-- 2 -->
+                    <label>Search</label>
+                    <div class="input-group">
+                      <select name="searchType" class="custom-select">
+                        <option value="title,body" <%= searchType=='title,body'?'selected':'' %>>Title, Body</option>
+                        <option value="title" <%= searchType=='title'?'selected':'' %>>Title</option>
+                        <option value="body" <%= searchType=='body'?'selected':'' %>>Body</option>
+                      </select>
+                      <input minLength="3" type="text" name="searchText" value="<%= searchText %>">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-primary" type="submit">search</button>
+                      </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
         <div class=list>
             <% if(recruitments == null || recruitments.length == 0){ %>
                   <p> There is no data to show :( </p>
