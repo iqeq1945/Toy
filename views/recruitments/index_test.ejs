@@ -7,7 +7,7 @@
     <%- include('../partials/nav') %>
 
     <div class="flex-container">
-        <div>
+        <div class="search flex-container">
             <form action="/recruitments" method="get">
                 <div class="form-group col-9"> <!-- 2 -->
                     <label>Search</label>
@@ -32,8 +32,10 @@
               <% } %>
             <% recruitments.forEach(function(recruitment){ %>
                 <a href="/recruitments/<%= recruitment._id %>" class="item">
+                    <p><% recruitment.tag.forEach(function(tag){ %>
+                        <span class="tag"><%= tag %></span>
+                   <% }) %></p>
                     <p>제목 <%= recruitment.title %></p>
-                    <p>태그 <%= recruitment.tag %></p>
                     <p>저자 <%= recruitment.author ? recruitment.author.username : "" %></p>
                     <p data-date="<%= recruitment.createdAt %>"></p>
                 </a>
