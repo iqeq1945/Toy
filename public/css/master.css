@@ -115,10 +115,16 @@ nav{
 }
 .item{
   background-color: white;
+  text-decoration: none;
+  color: black;
   margin-bottom: 1px;
   margin-right: 8px;
   padding: 5px 10px;
   width: 440px;
+}
+.item:hover{
+  text-decoration: none;
+  color:black;
 }
 form.container{
   margin: 16px auto;
@@ -130,18 +136,18 @@ form.container{
   background-color: #fff
 }
 span.tag{
-    font-size: 1rem;
-    display: inline-block;
-    align-items: center;
-    line-height: 1.9;
-    height: 2rem;
-    border-radius: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    background: #1dcdff;
-    color: white;
-    cursor: pointer;
-    margin-top: 2px;
+  font-size: 0.5rem;
+  display: inline-block;
+  align-items: center;
+  line-height: 2.0;
+  height: 1.3rem;
+  border-radius: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background: #1dcdff;
+  color: white;
+  cursor: pointer;
+  margin: 2px 0 1px 1px;
 }
 .tag{
   font-size: 1rem;
@@ -160,4 +166,26 @@ span.tag{
 }
 .search{
   display: flex;
+}
+
+.button{
+  display: inline-block;
+  background-color: lightblue;
+  font-weight: 250;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  color: black;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.button:hover{
+  text-decoration: none;
+  color:white;
+  background-color: #1dcdff;
 }

@@ -37,11 +37,13 @@ $(function(){
   
     convertDate();
     convertDateTime();
+    // enter 방지
     $('input[type="text"]').keydown(function() {
       if (event.keyCode === 13 ) {
           event.preventDefault();
       }
   });
+  // recruitment태그 추가 기능
     $('#tag').keydown(function(){
     if(event.keyCode === 13 || event.keyCode === 32){
       var tag = $('#tag').val();
@@ -64,6 +66,7 @@ $(function(){
       }
     }
   });
+  // recruitment 태그 삭제 기능
   function del_tag(obj){
     var input = document.getElementsByName("tag");
     input.forEach(function(element){
