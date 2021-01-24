@@ -41,3 +41,11 @@ input[type=submit]{
   background-color: #56baed;
   color: white;
 }
+.error-hidden{
+  display: none;
+}
+.error-login{
+  display: block;
+  color: red;
+  font-size: 2.3vh;
+}

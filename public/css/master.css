@@ -110,6 +110,7 @@ nav{
 .list{
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
   margin: 8px auto;
 }
@@ -120,7 +121,7 @@ nav{
   margin-bottom: 1px;
   margin-right: 8px;
   padding: 5px 10px;
-  width: 440px;
+  width: 55vw;
 }
 .item:hover{
   text-decoration: none;

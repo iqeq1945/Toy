@@ -11,24 +11,23 @@
     <div id="login" class="flex-container">
 
       <form class="login-container" action="/login" method="post">
+        <h3>Login</h3>
         <div class="input-form">
             <input type="text" id="username" name="username" value="<%= username %>" placeholder="username">
             <% if(errors.username){ %>
-                <div class="invalid-feedback"><%= errors.username %></div>
+                <span class="<%= (errors.password)?'error-login':'error-hidden' %>"><%= errors.username %></span>
             <% } %>
         </div>
         <div  class="input-form">
             <input type="password" id="password" name="password" placeholder="password"> 
             <% if(errors.password){ %>
-                <div class="invalid-feedback"><%= errors.password %></div>
+                <span class="<%= (errors.password)?'error-login':'error-hidden' %>"><%= errors.password %></span>
             <% } %>
         </div>
-        <% if(errors.login){ %>
-            <div class="invalid-feedback d-block"><%= errors.login %></div>
-          <% } %>
-          <div class>
             <input class="" type="submit" value="Submit">
-          </div>
+            <% if(errors.login){ %>
+              <div class="error-login"><%= errors.login %></div>
+            <% } %>
       </form>
     </div>
   </body>
