@@ -1,0 +1,23 @@
+article{
+    margin-top: 20px;
+    padding: 10px;
+    background: white;
+    width: 70vw;
+  }
+.article-author{
+    font-size: 0.9rem;
+}
+.article-title{
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+.article-info{
+    font: 0.8rem;
+    color: #A6A6A6;
+}
+.article-body{
+    font-size: 1rem;
+}
+.jt-sb{
+    justify-content: space-between;
+}

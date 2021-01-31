@@ -47,7 +47,7 @@ router.get('/:id',function(req,res){
     .populate('author')
     .exec(function(err,recruitment){
       if(err) return res.json(err);
-      res.render('recruitments/show',{recruitment:recruitment});
+      res.render('recruitments/show_test',{recruitment:recruitment});
     });
    
 });

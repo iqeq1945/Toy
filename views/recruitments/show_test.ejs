@@ -1,0 +1,38 @@
+<!-- views/recruitments/show.ejs -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/css/article.css">
+  </head>
+  <body class="b-g">
+    <%- include('../partials/nav') %>
+    
+    <div class="flex-container column">
+        <article>
+          <p class="flex-container jt-sb"><span class="article-author"><%= recruitment.author.username %></span>
+            <span>
+          <% recruitment.tag.forEach(function(tag){ %>
+          <span class="tag"><%= tag %></span>
+        <% }) %></p></span>
+    
+        <p class="article-title"><%= recruitment.title %></p>
+        <p class="article-info"><span data-date-time="<%= recruitment.createdAt %>"><%= recruitment.createdAt %></span>
+            <% if(recruitment.updatedAt) { %>
+              <span>Updated</span> : <span data-date-time="<%= recruitment.updatedAt %>"><%= recruitment.updatedAt %></span></p>
+            <% } %>
+        <p class="article-body"><%= recruitment.body %></p>
+        </article>
+        <div class="mt-3">
+          <a class="button" href="/recruitments">Back</a>
+          <% if(isAuthenticated && recruitment.author && currentUser.id == recruitment.author.id){ %> <!-- 1 -->
+            <a class="button" href="/recruitments/<%= recruitment._id %>/edit">Edit</a>
+            <form action="/recruitments/<%= recruitment._id %>?_method=delete" method="post" class="d-inline">
+              <a class="button" href="#" onclick="confirm('Do you want to delete this?')?this.parentElement.submit():null;">Delete</a>
+            </form>
+          <% } %>
+        </div>
+    </div>
+  </body>
+</html>
