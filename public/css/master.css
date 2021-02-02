@@ -39,7 +39,6 @@ nav{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-around;
   }
   .column{
     flex-direction: column;
@@ -59,9 +58,7 @@ nav{
     list-style: none;
     padding-left: 10px;
   }
-  .search{
-    padding-bottom: 10px;
-  }
+ 
   .nav-item{
     display: inline-block;
     margin: 6px 2px 0;
@@ -132,7 +129,6 @@ nav{
   text-decoration: none;
   color: black;
   margin-bottom: 1px;
-  margin-right: 8px;
   padding: 5px 10px;
   width: 55vw;
 }
@@ -179,10 +175,12 @@ span.tag{
     cursor: pointer;
     margin-bottom: 0.75rem;
 }
-.search{
-  display: flex;
+.sp-ar{
+  justify-content: space-around;
 }
-
+.sp-bt{
+  justify-content: space-between;
+}
 .button{
   display: inline-block;
   background-color: lightblue;

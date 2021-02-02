@@ -2,32 +2,25 @@
 <html lang="en">
 <head>
     <%- include('../partials/head') %>
+    <link rel="stylesheet" href="css/search.css">
 </head>
 <body class="b-g">
     <%- include('../partials/nav') %>
 
     <div class="flex-container">
-        <div class="search flex-container">
-            <form action="/recruitments" method="get">
-                <div class="form-group col-9"> <!-- 2 -->
-                    <label>Search</label>
-                    <div class="input-group">
-                      <select name="searchType" class="custom-select">
-                        <option value="title,body" <%= searchType=='title,body'?'selected':'' %>>Title, Body</option>
-                        <option value="title" <%= searchType=='title'?'selected':'' %>>Title</option>
-                        <option value="body" <%= searchType=='body'?'selected':'' %>>Body</option>
-                      </select>
-                      <input minLength="3" type="text" name="searchText" value="<%= searchText %>">
-                      <div class="input-group-append">
-                        <button class="btn btn-outline-primary" type="submit">search</button>
-                      </div>
-                    </div>
-                </div>
-            </form>
-        </div>
         
         <div class=list>
-            <h2>스터디 모집</h2>
+            <div class="flex-container sp-bt">
+                <h2>스터디 모집</h2>
+                <form action="/recruitments" method="get">
+                    <select name="searchType">
+                        <option value="title,body,tag" selected>Title, Body, Tag</option>
+                    </select>
+                    <input minLength="3" type="text" name="searchText" value="<%= searchText %>" placeholder="search..." class="search-bar">
+                    <button class="search-button" type="submit">search</button>
+                </form>
+            </div>
+
             <% if(recruitments == null || recruitments.length == 0){ %>
                   <p> There is no data to show :( </p>
               <% } %>

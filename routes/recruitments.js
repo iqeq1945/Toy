@@ -111,6 +111,9 @@ router.put('/:id', util.isLoggedin, checkPermission, function(req, res){
       if(searchTypes.indexOf('body')>=0){
         RecruitmentQueries.push({ body: { $regex: new RegExp(queries.searchText, 'i') } });
       }
+      if(searchTypes.indexOf('tag')>=0){
+        RecruitmentQueries.push({ tag: { $regex: new RegExp(queries.searchText, 'i') } });
+      }
       if(RecruitmentQueries.length > 0) searchQuery = {$or:RecruitmentQueries}; 
     }
     return searchQuery;
